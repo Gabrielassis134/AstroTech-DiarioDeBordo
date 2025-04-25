@@ -3,10 +3,17 @@
    <head>
       <meta charset="UTF-8" />
       <title>Exemplo de Input e Botão</title>
-      <script></script>
+      <script>
+         function mostrarTexto() {
+            var input = document.getElementById("meuInput").value;
+            var texto = document.getElementById("textoExibido");
+            texto.textContent = input;
+         }
+      </script>
    </head>
    <body>
       <input type="text" id="meuInput" placeholder="Digite algo..." />
       <button onclick="mostrarTexto()">Enviar</button>
+      <p id="textoExibido"></p>
    </body>
 </html>
