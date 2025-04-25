@@ -2,18 +2,29 @@
 <html lang="pt-BR">
    <head>
       <meta charset="UTF-8" />
-      <title>Exemplo de Input e Botão</title>
+      <title>Diário de Bordo</title>
       <script>
          function mostrarTexto() {
-            var input = document.getElementById("meuInput").value;
-            var texto = document.getElementById("textoExibido");
-            texto.textContent = input;
+            const input = document.getElementById("meuInput");
+            const resultado = document.getElementById("resultado");
+            const texto = input.value.trim(); // remove espaços vazios
+
+            if (texto === "") {
+               resultado.textContent =
+                  "Por favor, digite algo antes de enviar.";
+               resultado.style.color = "red";
+            } else {
+               resultado.textContent = "Você escreveu: " + texto;
+               resultado.style.color = "black";
+               input.value = "";
+            }
          }
       </script>
    </head>
    <body>
-      <input type="text" id="meuInput" placeholder="Digite algo..." />
+      <h2>Digite sua mensagem:</h2>
+      <input type="text" id="meuInput" placeholder="Escreva algo aqui..." />
       <button onclick="mostrarTexto()">Enviar</button>
-      <p id="textoExibido"></p>
+      <p id="resultado"></p>
    </body>
 </html>
